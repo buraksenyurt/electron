@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Electron world!</title>
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+    <div class="container">
+        <h1>Wellcome to cross-platform universe!</h1>
+        <input id="textNickname" type="text" class="form-control" placeholder="Please enter your nickname" aria-label="Nickname">
+        <button class="btn btn-info" id="btnOk">Say something</button>
+        <div>
+            <blockquote class="blockquote">
+                <p class="mb-0" id="hello-message"></p>
+            </blockquote>
+        </div>
+        <script>
+            let $ = require('jquery')
+            $('#btnOk').on('click', () => {
+                let nickName = $('#textNickname').val()
+                $('#hello-message').text('Aloha, ' + nickName)
+            })
+
+        </script>
+    </div>
+</body>
+
+</html>
