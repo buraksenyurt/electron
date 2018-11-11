@@ -1,0 +1,20 @@
+<html>
+
+<head>
+    <title>Information about system</title>
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+    <div>
+        <script>
+            let osInfo = require('os')
+            document.write('<span class="badge badge-primary">Platform</span><h3>' + osInfo.platform() + '</h3><br/>')
+            document.write('<span class="badge badge-secondary">Architecture</span><h3>' + osInfo.arch() + '</h3><br/>')
+            document.write('<span class="badge badge-success">User Information</span><p>' + JSON.stringify(osInfo.userInfo()) + '</p><br/>')
+            document.write('<span class="badge badge-warning">Username</span><p>' + osInfo.userInfo().username + '</p><br/>')
+        </script>
+    </div>
+</body>
+
+</html>
