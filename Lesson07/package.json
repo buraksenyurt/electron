@@ -1,0 +1,31 @@
+{
+  "name": "using-dialogs",
+  "version": "1.0.0",
+  "description": "using dialogs and open sample files",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ./main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/buraksenyurt/electron.git"
+  },
+  "keywords": [
+    "node",
+    "nodejs",
+    "javascript",
+    "bootstrap",
+    "electron",
+    "tutorial"
+  ],
+  "author": "burak selim senyurt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/buraksenyurt/electron/issues"
+  },
+  "homepage": "https://github.com/buraksenyurt/electron#readme",
+  "devDependencies": {
+    "electron": "^3.0.8"
+  }
+}

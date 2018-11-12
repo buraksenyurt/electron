@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>IPC Example for Async Messaging</title>
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+    <div class="card" style="width: 24rem;">
+        <div class="card-body">
+            <button class="btn btn-outline-secondary" id="btnOpenFile" type="button">Open File</button>
+            <h5 class="card-title" id="imageName"></h5>
+            <h6 class="card-subtitle mb-2 text-muted" id="imageSummary"></h6>
+            <img class="card-img-bottom" id="imgWallpaper" />
+        </div>
+    </div>
+    <script>
+        const { ipcRenderer } = require('electron')
+        var imageName = document.getElementById('imageName')
+        var imageSummary = document.getElementById('imageSummary')
+        var imgWallpaper = document.getElementById('imgWallpaper')
+
+        document.querySelector('#btnOpenFile').addEventListener('click', () => {
+            ipcRenderer.send('getSomeWallpaper', () => {
+                console.log('Event fired')
+            })
+        });
+
+        ipcRenderer.on('itsForYou', (event, arg) => {
+            imageName.innerHTML = JSON.parse(JSON.stringify(arg.Title))
+            imageSummary.innerHTML = JSON.parse(JSON.stringify(arg.Summary))
+            imgWallpaper.src = JSON.parse(JSON.stringify(arg.Filename))
+        })
+
+    </script>
+</body>
+
+</html>
