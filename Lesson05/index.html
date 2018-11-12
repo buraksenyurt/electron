@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <title>Sample net module example</title>
+</head>
+
+<body>
+    <div>Current value:<p id="currentValue"></p>
+    </div>
+    <div><input type="submit" id="btnClose" value="Close connection"></button></div>
+    <script>
+        document.querySelector('#btnClose').addEventListener('click', () => {
+            console.log('closing');
+            client.end();
+        });
+
+        var net = require('net');
+        var client = net.connect({ port: 4001 }, function () {
+            console.log('Connection established!');
+        });
+
+        client.on('data', function (data) {
+            document.clear();
+            var div = document.getElementById('currentValue');
+            div.innerHTML = ('<h3>Incoming value : ' + data.toString() + '</h3>');
+        });
+
+        client.on('end', function () {
+            console.log('Disconnected :(');
+        });
+
+    </script>
+</body>
+
+</html>

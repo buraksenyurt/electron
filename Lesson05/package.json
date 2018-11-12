@@ -1,0 +1,32 @@
+{
+  "name": "usingnetmodule",
+  "version": "1.0.0",
+  "description": "using node.js net module example",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ./main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/buraksenyurt/electron.git"
+  },
+  "keywords": [
+    "node",
+    "node.js",
+    "javascript",
+    "electron",
+    "html",
+    "net",
+    "module"
+  ],
+  "author": "buraks",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/buraksenyurt/electron/issues"
+  },
+  "homepage": "https://github.com/buraksenyurt/electron#readme",
+  "devDependencies": {
+    "electron": "^3.0.8"
+  }
+}
