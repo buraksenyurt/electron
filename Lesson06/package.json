@@ -1,0 +1,32 @@
+{
+  "name": "ipc-sample",
+  "version": "1.0.0",
+  "description": "Inter Process Communication sample",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ./server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/buraksenyurt/electron.git"
+  },
+  "keywords": [
+    "node",
+    "node.js",
+    "javascript",
+    "ipc",
+    "electron",
+    "html",
+    "tutorial"
+  ],
+  "author": "buraks",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/buraksenyurt/electron/issues"
+  },
+  "homepage": "https://github.com/buraksenyurt/electron#readme",
+  "devDependencies": {
+    "electron": "^3.0.8"
+  }
+}

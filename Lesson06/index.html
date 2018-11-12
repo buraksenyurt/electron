@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>IPC Example for Async Messaging</title>
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <button class="btn btn-outline-secondary" id="btnSend" type="button">Send Message</button>
+            </div>
+            <input type="text" id="textMessage" class="form-control" placeholder="your message..." aria-label="">
+        </div>
+        <div class="h6" id="divResult">
+        </div>
+    </div>
+    <script>
+        const { ipcRenderer } = require('electron')
+        var divResult = document.getElementById('divResult')
+
+        document.querySelector('#btnSend').addEventListener('click', () => {
+            var msg = document.getElementById('textMessage').value
+            ipcRenderer.send('async-message-pipe', msg)
+        });
+
+        ipcRenderer.on('async-reply', (event, arg) => {
+            divResult.innerHTML = arg + "<br/>"
+        })
+
+    </script>
+</body>
+
+</html>

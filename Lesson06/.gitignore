@@ -1,0 +1,6 @@
+# Ignore folder named node_modules
+node_modules/
+bower_components/
+
+# Ignore file named 'package-lock.json'
+package-lock.json
