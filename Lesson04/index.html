@@ -7,12 +7,36 @@
 
 <body>
     <div>
+        <p>
+            <h2>Basic system informations</h2>
+        </p>
         <script>
             let osInfo = require('os')
             document.write('<span class="badge badge-primary">Platform</span><h3>' + osInfo.platform() + '</h3><br/>')
             document.write('<span class="badge badge-secondary">Architecture</span><h3>' + osInfo.arch() + '</h3><br/>')
             document.write('<span class="badge badge-success">User Information</span><p>' + JSON.stringify(osInfo.userInfo()) + '</p><br/>')
             document.write('<span class="badge badge-warning">Username</span><p>' + osInfo.userInfo().username + '</p><br/>')
+
+            var oneMb = 1048576
+            var bytesAvailable = osInfo.totalmem() / oneMb
+            document.write('<span class="badge badge-dark">Total memory (MB)</span><p>' + bytesAvailable + '</p><br/>')
+
+            var mbTotal = ((osInfo.totalmem()) / oneMb)
+            var mbFree = ((osInfo.freemem()) / oneMb)
+            document.write('<span class="badge badge-dark">There are ' + mbFree + ' mb free<br/> in the memory of ' + mbTotal + ' mb in total</span><br/>')
+
+            console.log(osInfo.networkInterfaces())
+
+            let drivelist = require('drivelist');
+            drivelist.list((error, drives) => {
+                if (error) {
+                    throw error
+                }
+
+                drives.forEach((drive) => {
+                    console.log(drive.device + ',' + drive.description + ',' + (drive.size / oneMb));
+                })
+            })
         </script>
     </div>
 </body>
