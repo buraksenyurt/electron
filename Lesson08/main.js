@@ -12,7 +12,7 @@ function createWindow() {
         protocol: 'file:',
         slashes: true
     }))
-    // win.webContents.openDevTools()
+    //win.webContents.openDevTools()
 }
 
 const debugMenu = [
@@ -26,8 +26,12 @@ const debugMenu = [
             },
             {
                 label: 'Next Page', click() {
-                    win.loadURL(url.format({
-                        pathname: path.join(__dirname, 'view.html')
+                    console.log('Next window')
+                    let newWindow = new BrowserWindow({ width: 640, height: 480 })
+                    newWindow.loadURL(url.format({
+                        pathname: path.join(__dirname, 'view.html'),
+                        protocol: 'file:',
+                        slashes: true
                     }))
                 }
             },
