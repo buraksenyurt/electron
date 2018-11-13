@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>System Tray Menu Sample</title>
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+    <div class="card" style="width: 24rem;">
+        <div class="card-body">
+            <h5 class="card-title" id="Event">System Try</h5>
+            <p>Look at system tray. Right bottom for Windows :P</p>
+            <h6 class="card-subtitle mb-2 text-muted" id="txtAction"></h6>
+        </div>
+    </div>
+    <script>
+        const { remote } = require('electron')
+        const { Tray, Menu } = remote
+        const path = require('path')
+        var txtAction=document.getElementById('txtAction')
+
+        let traySymbol = new Tray(path.join('', 'electron_logo.png'))
+        const trayMenu = [
+            {
+                label: 'Get Statistics',
+                click(){
+                    txtAction.innerText="Do you know the program statistics :)"
+                }
+            },
+
+            {
+                label: 'Settings',
+                click: function () {
+                    txtAction.innerText='Some settings about this app.'
+                }
+            }
+        ]
+
+        let tMenu = Menu.buildFromTemplate(trayMenu)
+        traySymbol.setContextMenu(tMenu)
+
+    </script>
+</body>
+
+</html>
