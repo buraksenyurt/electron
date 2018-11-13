@@ -1,0 +1,32 @@
+{
+  "name": "usingmenus",
+  "version": "1.0.0",
+  "description": "using menu items",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ./main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/buraksenyurt/electron.git"
+  },
+  "keywords": [
+    "node",
+    "nodejs",
+    "javascript",
+    "electron",
+    "html",
+    "tutorial",
+    "cross-platform"
+  ],
+  "author": "buraks",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/buraksenyurt/electron/issues"
+  },
+  "homepage": "https://github.com/buraksenyurt/electron#readme",
+  "devDependencies": {
+    "electron": "^3.0.9"
+  }
+}

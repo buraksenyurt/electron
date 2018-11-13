@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>IPC Example for Async Messaging</title>
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+    <div class="card" style="width: 24rem;">
+        <div class="card-body">
+            <h5 class="card-title" id="Event">Menus</h5>            
+            <p>Please right click on mouse ;)</p>
+            <h6 class="card-subtitle mb-2 text-muted" id="txtAction"></h6>
+        </div>
+    </div>
+    <script>
+        const { remote } = require('electron')
+        const { Menu, MenuItem } = remote
+        const menu=new Menu()
+
+        var txtAction = document.getElementById('txtAction')
+
+        menu.append(new MenuItem({
+            label: 'Print',
+            click() {
+                txtAction.innerText = "Printing page"
+            }
+        }))
+        menu.append(new MenuItem({
+            label: 'Zoom In',
+            click() {
+                txtAction.innerText = 'Zoom In'
+            }
+        }))
+
+        window.addEventListener('contextmenu', (e) => {
+            e.preventDefault()
+            menu.popup(remote.getCurrentWindow())
+        }, false)
+
+    </script>
+</body>
+
+</html>
