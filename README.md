@@ -15,5 +15,6 @@ Lesson04 | OS modülünün kullanımı ve sistem hakkında basit bilgilerin sayf
 Lesson05 | Net modülü kullanımı örneği. Sunucu belli aralıklarla istemciye rastgele sayılar gönderir.
 Lesson06 | Basit IPC(Inter Process Communication) kullanımı örneği. İstemcinin IPC üzerinden sunucuya gönderdiği bilgiyi sunucu kendisine geri gönderir.
 Lesson07 | ShowDialog kullanımı. Kullanıcı dosya açma pencersinden seçtiği bir imajı ekranında görür.
+Lesson08 | Basit menu kullanımı. Context tipinden menu örneğine de yer verildi. Next Page ve Main Page'ile sayfa geçişleri deneyimlendi.
 
  [Electron ile ilgili olarak burdan detaylı bilgi alabilirsiniz](https://electronjs.org/)
