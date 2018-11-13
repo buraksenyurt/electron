@@ -17,4 +17,12 @@ Lesson06 | Basit IPC(Inter Process Communication) kullanımı örneği. İstemci
 Lesson07 | ShowDialog kullanımı. Kullanıcı dosya açma pencersinden seçtiği bir imajı ekranında görür.
 Lesson08 | Basit menu kullanımı. Context tipinden menu örneğine de yer verildi. Next Page ve Main Page'ile sayfa geçişleri deneyimlendi.
 
+Örnekleri denerken electron, bootstrap, jquery gibi paketlere ihtiyacınız olabilir. Aşağıdaki gibi temel komutlar işinizi görecektir.
+
+```
+npm install --save-dev electron
+bower install bootstrap
+bower install jquery
+```
+
  [Electron ile ilgili olarak burdan detaylı bilgi alabilirsiniz](https://electronjs.org/)
