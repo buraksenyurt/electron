@@ -24,7 +24,20 @@ const debugMenu = [
                     console.log('We can use IPC for communication index.html')
                 }
             },
-            { label: 'Pause' },
+            {
+                label: 'Next Page', click() {
+                    win.loadURL(url.format({
+                        pathname: path.join(__dirname, 'view.html')
+                    }))
+                }
+            },
+            {
+                label: 'Main Page', click() {
+                    win.loadURL(url.format({
+                        pathname: path.join(__dirname, 'index.html')
+                    }))
+                }
+            },
             { label: 'Stop' },
             {
                 label: 'Help', click() {
