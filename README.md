@@ -17,11 +17,13 @@ Lesson06 | Basit IPC(Inter Process Communication) kullanımı örneği. İstemci
 Lesson07 | ShowDialog kullanımı. Kullanıcı dosya açma pencersinden seçtiği bir imajı ekranında görür.
 Lesson08 | Basit menu kullanımı. Context tipinden menu örneğine de yer verildi. Next Page ve Main Page'ile sayfa geçişleri deneyimlendi.
 Lesson09 | System Tray menüsünü nasıl oluşturabiliriz? Buna dair basit bir örnek. Linux'de sağ üst tarafta, Windows'da sağ alt tarafta çıkan menüden bahsediyorum.
+Lesson10 | Notification(Balon) bilgilendirmesi nasıl yapılır konulu örnek.
 
-Örnekleri denerken electron, bootstrap, jquery gibi paketlere ihtiyacınız olabilir. Aşağıdaki gibi temel komutlar işinizi görecektir.
+Örnekleri denerken electron, bootstrap, jquery gibi paketlere ihtiyacınız olabilir. Aşağıdaki gibi temel kurulumlara ihtiyacınız olabilir. Dersin ihtiyacı olduğu pakete göre bunlar değişiklik gösterebilir.
 
 ```
 npm install --save-dev electron
+npm install --save-dev node-notifier
 bower install bootstrap
 bower install jquery
 ```

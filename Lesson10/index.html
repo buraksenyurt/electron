@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Notification Sample</title>
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+    <div class="card" style="width: 48rem;">
+        <div class="card-body">
+            <label for="basic-url">Github Username</label>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon3">https://github.com/</span>
+                </div>
+                <div>
+                    <input id="txtUsername" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <input id="chkSubscription" type="checkbox">
+                        </div>
+                    </div>
+                    Would you like to join our newsletter?
+                </div>
+                <div class="input-group-prepend">
+                    <button id="btnSubscribe" class="btn btn-outline-secondary" type="button">Subscribe</button>
+                </div>
+                <div class="input-group mb-3">
+                    <div id="lblStatus">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const notifier = require('node-notifier')
+
+        document.getElementById('btnSubscribe').onclick = (event) => {
+            notifier.notify({
+                title: 'Action',
+                message: 'Hello ' + txtUsername.value + '. Your subscription completed. Please check your e-mail?',
+                icon: '/home/burakselyum/Development/electron/Lesson10/bell.png',
+                sound: true,
+                wait: true
+            }, function (err, response) { });
+
+            notifier.on('click', function (sender, options) {
+                console.log('bla')
+                lblStatus.innerHTML = 'Balona bastın'
+            });
+
+            notifier.on('timeout', function (sender, options) {
+                lblStatus.innerHTML = 'Balona basmadın. Zamanı doldu, kapandı.'
+            });
+        }
+    </script>
+</body>
+
+</html>
