@@ -18,9 +18,6 @@
     </div>
     <script>
         const { ipcRenderer } = require('electron')
-        var imageName = document.getElementById('imageName')
-        var imageSummary = document.getElementById('imageSummary')
-        var imgWallpaper = document.getElementById('imgWallpaper')
 
         document.querySelector('#btnOpenFile').addEventListener('click', () => {
             ipcRenderer.send('getSomeWallpaper', () => {

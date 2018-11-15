@@ -21,8 +21,8 @@
 
         client.on('data', function (data) {
             document.clear();
-            var div = document.getElementById('currentValue');
-            div.innerHTML = ('<h3>Incoming value : ' + data.toString() + '</h3>');
+            
+            currentValue.innerHTML = ('<h3>Incoming value : ' + data.toString() + '</h3>');
         });
 
         client.on('end', function () {

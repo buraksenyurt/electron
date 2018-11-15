@@ -20,11 +20,8 @@
     </div>
     <script>
         const { ipcRenderer } = require('electron')
-        var divResult = document.getElementById('divResult')
-
         document.querySelector('#btnSend').addEventListener('click', () => {
-            var msg = document.getElementById('textMessage').value
-            ipcRenderer.send('async-message-pipe', msg)
+            ipcRenderer.send('async-message-pipe', textMessage.value)
         });
 
         ipcRenderer.on('async-reply', (event, arg) => {
