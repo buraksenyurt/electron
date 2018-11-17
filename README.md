@@ -18,6 +18,7 @@ Lesson07 | ShowDialog kullanımı. Kullanıcı dosya açma pencersinden seçtiğ
 Lesson08 | Basit menu kullanımı. Context tipinden menu örneğine de yer verildi. Next Page ve Main Page'ile sayfa geçişleri deneyimlendi.
 Lesson09 | System Tray menüsünü nasıl oluşturabiliriz? Buna dair basit bir örnek. Linux'de sağ üst tarafta, Windows'da sağ alt tarafta çıkan menüden bahsediyorum.
 Lesson10 | Notification(Balon) bilgilendirmesi nasıl yapılır konulu örnek.
+Lesson11 | WebView kontrolü ile dahili tarayıcı kullanımına ilişkin örnek.
 
 Örnekleri denerken electron, bootstrap, jquery gibi paketlere ihtiyacınız olabilir. Aşağıdaki gibi temel kurulumlara ihtiyacınız olabilir. Dersin ihtiyacı olduğu pakete göre bunlar değişiklik gösterebilir.
 
