@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Web View Sample</title>
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+    <div class="input-group">
+        <select id="selUrl" class="custom-select" id="inputGroupSelect04">
+            <option selected>Go to...</option>
+            <option value="1">AWS</option>
+            <option value="2">Microsoft Azure</option>
+            <option value="3">Google Cloud Platform</option>
+        </select>
+        <div class="input-group-append">
+            <button id="btnGo" class="btn btn-outline-secondary" type="button">Go</button>
+            <button id="btnBack" class="btn btn-outline-secondary" type="button">Back</button>
+            <button id="btnForward" class="btn btn-outline-secondary" type="button">Forward</button>
+            <button id="btnHome" class="btn btn-outline-secondary" type="button">Home</button>
+            <button id="btnReload" class="btn btn-outline-secondary" type="button">Reload</button>
+        </div>
+    </div>
+    <div>
+        <webview id="inBrowser" src="internal.html" style="width:650px; height:480px;">
+        </webview>
+    </div>
+    <script>
+        var isLoading = false
+        const webview = document.getElementById('inBrowser')
+        const loadstart = () => {
+            isLoading = true
+            console.log('loading...')
+        }
+
+        const loadstop = () => {
+            isLoading = false
+            console.log('stoped')
+        }
+
+        webview.addEventListener('did-start-loading', loadstart)
+        webview.addEventListener('did-stop-loading', loadstop)
+
+        document.querySelector('#btnGo').addEventListener('click', () => {
+            var selected = selUrl.options[selUrl.selectedIndex].value;
+            if (selected == "1") {
+                webview.loadURL("http://www.aws.com")
+            }
+            else if (selected == "2") {
+                webview.loadURL("https://www.azure.com")
+            }
+            else if (selected == "3") {
+                webview.loadURL("https://cloud.google.com/")
+            }
+            else {
+
+            }
+        })
+
+        document.querySelector('#btnBack').onclick = function () {
+            webview.goBack();
+        };
+
+        document.querySelector('#btnForward').onclick = function () {
+            webview.goForward();
+        };
+
+        document.querySelector('#btnHome').onclick = function () {
+            webview.src = 'internal.html';
+        };
+
+        document.querySelector('#btnReload').onclick = function () {
+            if (isLoading) {
+                webview.stop();
+            } else {
+                webview.reload();
+            }
+        };
+    </script>
+</body>
+
+</html>
