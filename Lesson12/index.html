@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Using keyboard shortcuts</title>
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+    <div>
+        <h5>Press (CTRL or CMD) + T to translate your message</h5>
+        <h5>And press (CTRL or CMD) + W/E to increment volume</h5>
+        <input id="txtMessage" type="text" class="form-control" placeholder="Bir bilmecem var çocuklar" aria-label="Message">
+    </div>
+    <div id="txtResult"></div>
+    <div class="progress" style="height: 30px;">
+        <div id="volume" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+            aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">Volume Level</div>
+    </div>
+
+
+    <script>
+        const { ipcRenderer, remote } = require('electron')
+        const { globalShortcut } = remote
+        var increment = 10
+
+        globalShortcut.register('CommandOrControl+T', () => {
+            console.log('Ctrl/Cmd + T pressed')
+            ipcRenderer.send('translate-message', txtMessage.value)
+        })
+
+        ipcRenderer.on('translate-response', (event, data) => {
+            console.log('incoming from main ->' + data)
+            txtResult.innerText = data
+        })
+
+        globalShortcut.register('CommandOrControl+W', () => {
+            console.log('Ctrl/Cmd + W pressed')
+            if (increment < 100) {
+                increment = increment + 10
+                volume.attributes['aria-valuenow'].value = increment
+                volume.style = 'width:' + increment + '%'
+                volume.innerText = "Volume value " + increment
+            }
+        })
+
+        globalShortcut.register('CommandOrControl+E', () => {
+            console.log('Ctrl/Cmd + E pressed')
+            if (increment > 0) {
+                increment = increment - 10
+                volume.attributes['aria-valuenow'].value = increment
+                volume.style = 'width:' + increment + '%'
+                volume.innerText = "Volume value " + increment
+            }
+        })
+
+    </script>
+</body>
+
+</html>
