@@ -20,6 +20,7 @@ Lesson09 | System Tray menüsünü nasıl oluşturabiliriz? Buna dair basit bir 
 Lesson10 | Notification(Balon) bilgilendirmesi nasıl yapılır konulu örnek.
 Lesson11 | WebView kontrolü ile dahili tarayıcı kullanımına ilişkin örnek.
 Lesson12 | Global Shortcut kullanımının ele alındığı örnek. IPC içerir.
+Lesson13 | Basit bir formda NeDB(Fiziki disk üzerinde veri tutulur) veritabanının kullanımına ait örnek. 
 
 Örnekleri denerken electron, bootstrap, jquery gibi paketlere ihtiyacınız olabilir. Aşağıdaki gibi temel kurulumlara ihtiyacınız olabilir. Dersin ihtiyacı olduğu pakete göre bunlar değişiklik gösterebilir.
 
