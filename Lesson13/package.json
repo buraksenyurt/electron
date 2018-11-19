@@ -1,0 +1,35 @@
+{
+  "name": "dbsample",
+  "version": "1.0.0",
+  "description": "using NeDB with electron",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ./main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/buraksenyurt/electron.git"
+  },
+  "keywords": [
+    "electron",
+    "javascript",
+    "node.js",
+    "node",
+    "bootstrap",
+    "sqlite"
+  ],
+  "author": "buraks",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/buraksenyurt/electron/issues"
+  },
+  "homepage": "https://github.com/buraksenyurt/electron#readme",
+  "devDependencies": {
+    "electron": "^3.0.9",
+    "electron-rebuild": "^1.8.2",
+    "jquery": "^3.3.1",
+    "nedb": "^1.8.0",
+    "sqlite3": "^4.0.4"
+  }
+}

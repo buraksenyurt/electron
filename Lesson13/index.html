@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>A simple form for crud</title>
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+    <form>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputTaskTitle">Task Title</label>
+                <input type="text" id="inputTaskTitle" class="form-control" placeholder="Title of task" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputTaskDescription">Description</label>
+                <input type="text" class="form-control" id="inputTaskDescription" placeholder="Summary of your task"
+                    required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputPriority">Priority</label>
+                <select id="inputPriority" class="form-control">
+                    <option>Critical</option>
+                    <option>High</option>
+                    <option selected>Standard</option>
+                </select>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" id="buttonSave">Create Task</button>
+        <div>
+            <table class="table table-hover" id="tableTasks">
+                <thead>
+                    <tr>
+                        <th scope="col">Title</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Priority</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </form>
+
+    <script>
+        let $ = require('jquery');
+        var Datastore = require('nedb');
+        var db = new Datastore({ filename: 'MyTasks', autoload: true });
+
+        $(document).ready(function () {
+            db.find({}, function (err, data) {
+                console.log(data);
+                for (var i = 0, len = data.length; i < len; i++) {
+                    var row = data[i];
+                    console.log(row);
+                    $('table').append(`<tr><td>${row.title}</td><td>${row.description}</td><td>${row.priority}</td></tr>`);
+                }
+            })
+        });
+
+        $('#buttonSave').click(function () {
+            var task = {
+                title: $('#inputTaskTitle').val(),
+                description: $('#inputTaskDescription').val(),
+                priority: $('#inputPriority').val()
+            };
+            if (task.tite != "" && task.description != "") {
+                db.insert(task, function (err, newDoc) {
+                    if (err)
+                        console.log(err);
+                    else
+                        console.log(newDoc);
+                })
+            }
+        });
+    </script>
+</body>
+
+</html>
