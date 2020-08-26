@@ -27,6 +27,6 @@
   },
   "homepage": "https://github.com/buraksenyurt/electron#readme",
   "devDependencies": {
-    "electron": "^3.0.8"
+    "electron": "^10.0.0"
   }
 }
